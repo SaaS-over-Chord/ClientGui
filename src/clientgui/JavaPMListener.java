@@ -69,6 +69,8 @@ public class JavaPMListener implements Runnable{
         {
             //prompt the user that server is exiting 
             JOptionPane.showMessageDialog(null, "This node is exiting , please switch to"+in.readLine());
+            //replace the old XTerminal with a new XTerminal
+            XTerminal.xTerminal = new XTerminal();
             ClientGui.totalObjects = Integer.parseInt(in.readLine());
             ClientGui.migration = 1;
         }
