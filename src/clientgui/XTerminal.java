@@ -19,7 +19,7 @@ public class XTerminal {
     String xhost="127.0.0.1";
     int xport=0;
     String user;
-    String host;
+    static String host;
     
     private XTerminal() throws IOException{
         try {
