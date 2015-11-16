@@ -35,10 +35,9 @@ public class ClientGui {
     public static void main(String[] args) {
         String s;
         try {
-            XTerminal terminal = XTerminal.getInstance();
+            XTerminal.xTerminal = XTerminal.getInstance();
             //InputStream isr=
                     
-                    BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
                     startServer();
                     startListener();
              while(true){
