@@ -9,19 +9,21 @@ import com.jcraft.jsch.*;
 import java.io.IOException;
 import javax.swing.*;
 import java.awt.*;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 
 /**
  *
  * @author pratz
  */
 public class XTerminal {
-    private static XTerminal xTerminal;
+    public static XTerminal xTerminal;
     String xhost="127.0.0.1";
     int xport=0;
     String user;
     static String host;
     
-    private XTerminal() throws IOException{
+    public XTerminal() throws IOException{
         try {
             JSch jsch = new JSch();
             
@@ -48,6 +50,13 @@ public class XTerminal {
             channel.setInputStream(System.in);
             channel.setOutputStream(System.out);
             
+            BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+            
+            //on javapm.jar transfer the opened processes
+            if(br.readLine().contains("JavaPM.jar"))
+            {
+                new ProcessSender();
+            }
             channel.connect();
         }
         catch(Exception e){
