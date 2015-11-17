@@ -76,12 +76,10 @@ public class ClientGuiProcessReceiver implements Runnable{
 
 			DataOutputStream out = new DataOutputStream(clientSocket.getOutputStream());
 
-                        while(recv<tot)
-                        {
+                        
                             Object object = in.readObject();    
                             ClientGui.objectList.add(object);
-                            recv++;
-                        }
+                          
                         
             in.close();
             out.close();
