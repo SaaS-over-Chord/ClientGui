@@ -35,7 +35,9 @@ public class ClientGui {
     public static void main(String[] args) {
         String s;
         try {
+            Runtime.getRuntime().exec("xhost +localhost");
             XTerminal.xTerminal = XTerminal.getInstance();
+            
             //InputStream isr=
                     
                     startServer();
