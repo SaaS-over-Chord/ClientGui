@@ -26,7 +26,7 @@ public class JavaPMListener implements Runnable{
 
     public JavaPMListener() {
         try{
-        this.serverSocket = new ServerSocket(15442);
+        this.serverSocket = new ServerSocket(15444);
         }
         catch(IOException e)
         {
