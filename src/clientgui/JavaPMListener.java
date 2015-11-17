@@ -26,7 +26,7 @@ public class JavaPMListener implements Runnable{
 
     public JavaPMListener() {
         try{
-        this.serverSocket = new ServerSocket(15444);
+        this.serverSocket = new ServerSocket(15442);
         }
         catch(IOException e)
         {
@@ -65,13 +65,19 @@ public class JavaPMListener implements Runnable{
             catch(IOException e){
                 System.out.println("error in opening printwriter on socket" +e);
             }
-        if(in.readLine()=="ending JavaPM instance")
+        String str=in.readLine();
+        System.out.println(str);
+        if(str.equals("ending JavaPM instance") )
         {
             //prompt the user that server is exiting 
+            System.out.println("entered if");
             JOptionPane.showMessageDialog(null, "This node is exiting , please switch to"+in.readLine());
+            System.out.println("passed optionpane");
             //replace the old XTerminal with a new XTerminal
             XTerminal.xTerminal = new XTerminal();
+            System.out.println("started new terminal    ");
             ClientGui.totalObjects = Integer.parseInt(in.readLine());
+            System.out.println("objects passed on were in no" + ClientGui.totalObjects);
             ClientGui.migration = 1;
         }
     }
