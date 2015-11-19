@@ -5,9 +5,12 @@
  */
 package clientgui;
 
+import com.jcraft.jsch.JSchException;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.PipedInputStream;
+import java.io.PipedOutputStream;
 import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -41,11 +44,13 @@ public class JavaPMListener implements Runnable{
                 accept();
             } catch (IOException ex) {
                 System.out.println("exception arose in accepting"+ex);
+            } catch (JSchException ex) {
+                Logger.getLogger(JavaPMListener.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     }
     
-    private void accept() throws IOException{
+    private void accept() throws IOException, JSchException{
         Socket clientSocket = null;
         BufferedReader in = null;
         PrintWriter out;
@@ -73,8 +78,27 @@ public class JavaPMListener implements Runnable{
             System.out.println("entered if");
             JOptionPane.showMessageDialog(null, "This node is exiting , please switch to"+in.readLine());
             System.out.println("passed optionpane");
+            //destroy the SSH connection
+            System.out.println("disconnect ssh");
+            ClientGui.streamCheck=0;
+            //ClientGui.pos.close();
+            //ClientGui.pis.close();
+            ClientGui.xTerminal.channel.disconnect() ;
+            ClientGui.xTerminal.session.disconnect();
+            System.out.println(ClientGui.xTerminal.channel.isConnected() );
             //replace the old XTerminal with a new XTerminal
-            XTerminal.xTerminal = new XTerminal();
+            System.out.println("new xterminal opening");
+            
+            
+            //ClientGui.pos= new PipedOutputStream();
+            //ClientGui.pis = new PipedInputStream();
+            //ClientGui.pis.connect(ClientGui.pos);
+            
+            //ClientGui.streamChecker();
+            ClientGui.xTerminal.newConnection();
+            ClientGui.streamCheck=1;
+            //ClientGui.xTerminal.setNewConnection();
+            
             System.out.println("started new terminal    ");
             ClientGui.totalObjects = Integer.parseInt(in.readLine());
             System.out.println("objects passed on were in no" + ClientGui.totalObjects);
