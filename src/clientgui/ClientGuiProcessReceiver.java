@@ -6,8 +6,8 @@
 package clientgui;
 
 /**
- *
- * @author pratz
+ *@author Pratyush Kumar(pratyush)
+ * @author Vasu Vardhan(vardhan)
  */
 import java.io.BufferedOutputStream;
 import java.io.DataInputStream;

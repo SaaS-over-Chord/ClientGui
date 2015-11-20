@@ -15,7 +15,8 @@ import java.io.OutputStreamWriter;
 
 /**
  *
- * @author vardhran
+ * @author Pratyush Kumar(pratyush)
+ * @author Vasu Vardhan(vardhan)
  */
 public class Terminal {
     private static Terminal terminal;

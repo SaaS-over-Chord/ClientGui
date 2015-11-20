@@ -18,7 +18,8 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author vardhan
+ * @author Vasu Vardhan(vardhan)
+ * @author Pratyush Kumar(pratyush)
  */
 public class ClientGui {
 

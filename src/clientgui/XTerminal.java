@@ -14,7 +14,8 @@ import java.io.InputStreamReader;
 
 /**
  *
- * @author pratz
+ * @author Pratyush Kumar(pratyush)
+ * @author Vasu Vardhan(vardhan)
  */
 public class XTerminal {
     public static XTerminal xTerminal;

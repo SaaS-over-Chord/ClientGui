@@ -7,7 +7,8 @@ package clientgui;
 
 /**
  *
- * @author pratz
+ * @author Pratyush Kumar(pratyush)
+ * @author Vasu Vardhan (vardhan)
  */
 import java.io.IOException;
 import java.io.ObjectInputStream;
